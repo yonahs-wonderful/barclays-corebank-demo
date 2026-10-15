@@ -166,6 +166,12 @@ function ChatIdle({ agent, onStart }) {
 
 function App({ brand, persona, transport, loanOptions, posOffer, disbursementAccounts }) {
   const [items, setItems] = React.useState([]);
+  React.useEffect(() => {
+    if (!window.CoreBankHandoff) return;
+    return window.CoreBankHandoff.subscribe(message => {
+      setItems(previous => previous.some(item => item.id === message.id) ? previous : previous.concat(message));
+    });
+  }, []);
   const [typing, setTyping] = React.useState(false);
   const [file, setFile] = React.useState(() => ({
     documents: [],
