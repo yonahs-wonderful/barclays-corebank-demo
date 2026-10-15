@@ -13,7 +13,7 @@ function scheduleConfirmation(reference,key,saved){
       text:'James, your application has been entered into CoreBank successfully. Your reference is '+reference+'.'};
     messages.set(key,message);
     listeners.forEach(listener=>listener(message));
-    banner('Demo confirmation sent · '+reference);
+    document.getElementById('corebank-handoff')?.remove();
   },Math.max(0,dueAt-Date.now())));
 }
 function subscribe(listener){
