@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CoreBank/3270 — Lending Module</title><link rel="stylesheet" href="style.css"></head><body>
+<main class="window"><header><span>▣ &nbsp;CoreBank/3270 — Lending Module &nbsp;[CBS-LN-441]</span><span class="controls">▁ ▣ ×</span></header>
+<nav class="menu"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>R</u>ecord</span><span><u>I</u>nquiry</span><span><u>V</u>iew</span><span><u>H</u>elp</span></nav>
+<section class="toolbar"><label for="transaction">TXN:</label><select id="transaction"><option>CL-NEW — Commercial Loan Origination</option></select><div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-step="0">1 Entity</button><button role="tab" aria-selected="false" data-step="1">2 Request</button><button role="tab" aria-selected="false" data-step="2">3 Security</button></div></section>
+<form id="application" autocomplete="off"><div class="viewport"><section data-panel="0">
+<fieldset><legend>APPLICATION DETAILS</legend><div class="fields">
+<label for="lender">Lender / Bank Name :</label><input id="lender" name="lender" required>
+<label for="banker">Branch / Banker . . :</label><input id="banker" name="banker" required>
+<label for="reference">Application Ref . . :</label><input id="reference" name="reference" required>
+<label for="existingCustomer">Existing Customer? :</label><select id="existingCustomer" name="existingCustomer"><option>Yes</option><option>No</option></select>
+</div></fieldset>
+<fieldset><legend>BORROWING ENTITY</legend><div class="fields">
+<label for="entityName">Legal / Entity Name :</label><input id="entityName" name="entityName" class="key" required>
+<label for="entityType">Entity Type . . . . :</label><select id="entityType" name="entityType"><option>Pty Ltd company</option><option>Limited company</option><option>Sole trader</option><option>Partnership</option></select>
+<label for="abn">ABN . . . . . . . . :</label><input id="abn" name="abn" class="key" required>
+<label for="acn">ACN . . . . . . . . :</label><input id="acn" name="acn" required>
+<label for="industry">Industry . . . . . :</label><input id="industry" name="industry" required>
+</div></fieldset></section>
+<section data-panel="1" hidden><fieldset><legend>REQUEST</legend><p class="notice">Entity entry is ready for review. Request-screen fields were not supplied for this demonstration.</p><dl id="review"></dl></fieldset></section>
+<section data-panel="2" hidden><fieldset><legend>SECURITY</legend><p class="notice">Save the entity record to the demo terminal. No credit decision or funds transfer is performed.</p><p id="save-summary"></p><button type="submit" id="save">Save Record</button></fieldset></section>
+</div><div class="actions"><button type="button" id="inquiry">Record Inquiry</button><span></span><button type="button" id="back" disabled>&lt; Back</button><button type="button" id="next">Next &gt;</button><button type="button" id="cancel">Cancel</button></div></form>
+<footer><span><i></i> COREBANK-PROD-EUC1 ONLINE</span><span>TERMINAL TS04</span><span>OPER: AGENT_</span><span id="screen">Screen 1 of 3 — Commercial Loan<br>Origination (CL-NEW)</span><time id="clock"></time></footer><div id="status" role="status">Ready — enter application details.</div>
+</main><dialog id="records"><h3>Record Inquiry</h3><div id="record-list"></div><button id="close-inquiry">Close</button></dialog><script src="app.js"></script></body></html>
