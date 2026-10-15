@@ -1,6 +1,6 @@
 /* Demo-only bridge. Platform credentials remain in the server-side function. */
 (function(){
-const endpoint='https://usa.api.demo.wonderful.ai/api/v1/functions/ys-corebank-handoff';let busy=false;
+const endpoint='https://usa.api.demo.wonderful.ai/api/public/functions/07a1d9a6-8c73-4692-8888-f673051c5149/166dbd8c-42a9-4324-bb75-565b62bda5ba/ys-corebank-handoff';let busy=false;
 function banner(text,error){let box=document.getElementById('corebank-handoff');if(!box){box=document.createElement('div');box.id='corebank-handoff';box.setAttribute('role','status');box.style.cssText='position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:9999;background:white;border:1px solid #0f5f46;border-radius:10px;padding:14px 20px;box-shadow:0 4px 20px #0002;max-width:90vw;font:14px Arial';document.body.append(box)}box.textContent=text;box.style.borderColor=error?'#a00':'#0f5f46';return box}
 async function submit(card){if(busy)return;busy=true;let application;
 try{const reference=card.data.claim_ref;const key='corebank-handoff:'+reference;let saved;try{saved=JSON.parse(sessionStorage.getItem(key)||'null')}catch{}
